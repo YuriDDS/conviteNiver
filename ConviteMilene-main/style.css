@@ -1,0 +1,146 @@
+/* styles.css */
+
+/* Resetando o estilo padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+    font-family:fantasy;
+    background-image: url('pink.jpg'); /* Substitua com o caminho da sua imagem */
+    background-size: cover; /* Garante que a imagem cubra toda a tela */
+    background-position: center; /* Posiciona a imagem no centro */
+    background-attachment: fixed; /* Faz com que a imagem de fundo não se mova */
+    height: 100vh;
+    color: white; /* Texto em branco para contrastar com o fundo */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinha o conteúdo no topo */
+    padding-top: 50px; /* Adiciona um espaçamento superior */
+    position: relative; /* Necessário para o posicionamento absoluto do título */
+}
+
+/* Cabeçalho */
+header {
+    position: absolute; /* Fixando o título no topo da tela */
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza o título horizontalmente */
+    color: #eeaceed5;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    z-index: 1; /* Garante que o título fique acima de outros elementos */
+}
+
+/* Container central */
+.container {
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo branco semi-transparente */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center; /* Alinha o conteúdo dentro do container */
+    margin-top: 100px; /* Garante que o formulário não fique colado no título */
+}
+
+/* Estilo do formulário */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left; /* Deixa os campos alinhados à esquerda */
+}
+
+/* Estilo dos inputs */
+input[type="text"], input[type="email"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%; /* Garante que os inputs ocupem 100% da largura disponível */
+}
+
+/* Estilo do grupo de rádios */
+.radio-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center; /* Centraliza as opções de rádio */
+}
+
+.radio-group label {
+    font-size: 16px;
+}
+
+/* Estilo do botão */
+.submit-btn {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Garante que o botão ocupe toda a largura disponível */
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+/* Media Queries para Responsividade */
+
+/* Para telas de até 768px (tablets e celulares) */
+@media (max-width: 768px) {
+    header {
+        font-size: 2em; /* Diminui o tamanho do título em dispositivos menores */
+    }
+
+    .container {
+        max-width: 90%; /* O contêiner ocupa 90% da largura da tela em dispositivos menores */
+    }
+
+    .form-container {
+        gap: 12px; /* Reduz o espaçamento entre os campos do formulário */
+    }
+
+    input[type="text"], input[type="email"] {
+        font-size: 14px; /* Reduz o tamanho da fonte para caber melhor em telas pequenas */
+    }
+
+    .submit-btn {
+        font-size: 14px; /* Ajusta o tamanho da fonte do botão */
+    }
+}
+
+/* Para telas de até 480px (smartphones em modo retrato) */
+@media (max-width: 480px) {
+    body {
+        padding-top: 20px; /* Reduz o espaçamento superior em dispositivos pequenos */
+    }
+
+    header {
+        font-size: 1.8em; /* Ajusta o tamanho do título ainda mais */
+    }
+
+    .container {
+        max-width: 95%; /* O contêiner ocupa 95% da largura da tela em dispositivos muito pequenos */
+        padding: 15px; /* Reduz o padding dentro do contêiner */
+    }
+
+    .form-container {
+        gap: 10px; /* Ajusta o espaçamento do formulário */
+    }
+
+    input[type="text"], input[type="email"] {
+        font-size: 13px; /* Reduz o tamanho da fonte dos inputs */
+    }
+
+    .submit-btn {
+        font-size: 13px; /* Ajusta o tamanho da fonte do botão */
+    }
+}
