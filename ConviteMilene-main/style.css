@@ -30,7 +30,7 @@ header {
     left: 50%;
     transform: translateX(-50%); /* Centraliza o título horizontalmente */
     color: #eeaceed5;
-    font-size: 2.5em;
+    font-size: 1px;
     margin-bottom: 20px;
     z-index: 1; /* Garante que o título fique acima de outros elementos */
 }
@@ -77,15 +77,36 @@ input[type="text"], input[type="email"] {
 
 /* Estilo do botão */
 .submit-btn {
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%; /* Garante que o botão ocupe toda a largura disponível */
+    background-color: #4CAF50; /* Cor de fundo verde */
+    color: white; /* Cor do texto */
+    border: none; /* Remove a borda padrão */
+    border-radius: 25px; /* Borda arredondada */
+    padding: 15px 30px; /* Tamanho do botão (largura e altura) */
+    font-size: 18px; /* Tamanho da fonte */
+    font-weight: bold; /* Fonte em negrito */
+    cursor: pointer; /* Mudança do cursor ao passar o mouse sobre o botão */
+    transition: all 0.3s ease; /* Animação suave para todos os efeitos de transição */
+    width: 100%; /* O botão ocupa toda a largura disponível */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Efeito de hover (ao passar o mouse sobre o botão) */
+.submit-btn:hover {
+    background-color: #45a049; /* Altera a cor para um verde mais escuro */
+    transform: translateY(-3px); /* Cria um efeito de "elevação" do botão */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Aumenta a sombra */
+}
+
+/* Efeito de foco (quando o botão recebe foco) */
+.submit-btn:focus {
+    outline: none; /* Remove o contorno padrão ao clicar */
+    border: 2px solid #45a049; /* Adiciona uma borda verde */
+}
+
+/* Efeito de desativado (caso o botão precise ser desativado em algum momento) */
+.submit-btn:disabled {
+    background-color: #ccc; /* Cor de fundo cinza */
+    cursor: not-allowed; /* Impede o clique */
 }
 
 .submit-btn:hover {
