@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Aceitas?</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="style-opcion.css">
+        <link
+            href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css"
+            rel="stylesheet">
+    </head>
+    <body>
+        
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <h1 class="navbar-brand"><b>Deseja participar do aniversário da Milene?</b></h1>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <section>
+                <form action="">
+                    <div class="container mt-4">
+                        <div class="mb-3">
+                            <label>
+                                <input type="radio" id="sim" name="opcao" value="sim">
+                                <b>Sim</b>
+                            </label>
+                            <br>
+                            <br>
+                            <label>
+                                <input type="radio" id="nao" name="opcao" value="nao">
+                                <b>Não</b>
+                            </label>
+                            <br>
+                            <br>
+                            <button type="button" class="submit-btn" onclick="redirecionar()">Confirmar</button>
+                        <br><br>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </main>
+        <!-- Bootstrap Bundle with Popper -->
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+        <script>
+                function redirecionar() {
+                  const simSelecionado = document.getElementById("sim").checked;
+                  if (simSelecionado) {
+                    window.location.href = "main.html"; // Página de destino
+                  } else {
+                    alert("Você selecionou 'Não'. Permaneça na página atual.");
+                  }
+                }
+              </script>
+    </body>
+</html>

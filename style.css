@@ -9,13 +9,14 @@
 
 /* Corpo da página */
 body {
-    font-family:fantasy;
+    font-family: Arial, sans-serif;
+    background-repeat: no-repeat;
     background-image: url('pink.jpg'); /* Substitua com o caminho da sua imagem */
-    background-size: cover; /* Garante que a imagem cubra toda a tela */
+    background-size:auto; /* Garante que a imagem cubra toda a tela */
     background-position: center; /* Posiciona a imagem no centro */
     background-attachment: fixed; /* Faz com que a imagem de fundo não se mova */
     height: 100vh;
-    color: white; /* Texto em branco para contrastar com o fundo */
+    color: rgb(227, 147, 243); /* Texto em branco para contrastar com o fundo */
     display: flex;
     justify-content: center;
     align-items: flex-start; /* Alinha o conteúdo no topo */
@@ -25,28 +26,31 @@ body {
 
 /* Cabeçalho */
 header {
-    position: absolute; /* Fixando o título no topo da tela */
-    top: 0;
+    position: absolute; 
     left: 50%;
     transform: translateX(-50%); /* Centraliza o título horizontalmente */
-    color: #eeaceed5;
-    font-size: 1px;
-    margin-bottom: 20px;
+    color: #f07ad6e3;
+    font-size: 2.5em;
+    margin-top: 25px;
     z-index: 1; /* Garante que o título fique acima de outros elementos */
+    text-align: center;
 }
 
 /* Container central */
 .container {
-    background-color: rgba(255, 255, 255, 0.8); /* Fundo branco semi-transparente */
+    background-color: rgba(255, 249, 254, 0); /* Fundo branco semi-transparente */
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(240, 4, 149, 0.562);
     padding: 20px;
     width: 100%;
     max-width: 500px;
-    text-align: center; /* Alinha o conteúdo dentro do container */
-    margin-top: 100px; /* Garante que o formulário não fique colado no título */
+    text-align: left; /* Alinha o conteúdo dentro do container */
+    margin-top: 150px; /* Garante que o formulário não fique colado no título */
 }
 
+.mb3 {
+    text-align: left;
+}
 /* Estilo do formulário */
 .form-container {
     display: flex;
@@ -58,7 +62,7 @@ header {
 /* Estilo dos inputs */
 input[type="text"], input[type="email"] {
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #312f2f;
     border-radius: 5px;
     font-size: 16px;
     width: 100%; /* Garante que os inputs ocupem 100% da largura disponível */
@@ -77,46 +81,29 @@ input[type="text"], input[type="email"] {
 
 /* Estilo do botão */
 .submit-btn {
-    background-color: #4CAF50; /* Cor de fundo verde */
-    color: white; /* Cor do texto */
-    border: none; /* Remove a borda padrão */
-    border-radius: 25px; /* Borda arredondada */
-    padding: 15px 30px; /* Tamanho do botão (largura e altura) */
-    font-size: 18px; /* Tamanho da fonte */
-    font-weight: bold; /* Fonte em negrito */
-    cursor: pointer; /* Mudança do cursor ao passar o mouse sobre o botão */
-    transition: all 0.3s ease; /* Animação suave para todos os efeitos de transição */
-    width: 100%; /* O botão ocupa toda a largura disponível */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-}
-
-/* Efeito de hover (ao passar o mouse sobre o botão) */
-.submit-btn:hover {
-    background-color: #45a049; /* Altera a cor para um verde mais escuro */
-    transform: translateY(-3px); /* Cria um efeito de "elevação" do botão */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Aumenta a sombra */
-}
-
-/* Efeito de foco (quando o botão recebe foco) */
-.submit-btn:focus {
-    outline: none; /* Remove o contorno padrão ao clicar */
-    border: 2px solid #45a049; /* Adiciona uma borda verde */
-}
-
-/* Efeito de desativado (caso o botão precise ser desativado em algum momento) */
-.submit-btn:disabled {
-    background-color: #ccc; /* Cor de fundo cinza */
-    cursor: not-allowed; /* Impede o clique */
+    background-color: #cc69cc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Garante que o botão ocupe toda a largura disponível */
 }
 
 .submit-btn:hover {
-    background-color: #45a049;
+    background-color: #976297fb;
 }
 
 /* Media Queries para Responsividade */
 
 /* Para telas de até 768px (tablets e celulares) */
 @media (max-width: 768px) {
+    
+    body{
+        background-size:cover;
+    }
     header {
         font-size: 2em; /* Diminui o tamanho do título em dispositivos menores */
     }
