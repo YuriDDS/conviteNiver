@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background-repeat: no-repeat;
+    background-image: url('pink.jpg'); /* Substitua com o caminho da sua imagem */
+    background-size:auto; /* Garante que a imagem cubra toda a tela */
+    background-position: center; /* Posiciona a imagem no centro */
+    background-attachment: fixed; /* Faz com que a imagem de fundo não se mova */
+    height: 100vh;
+    color: rgb(227, 147, 243); /* Texto em branco para contrastar com o fundo */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinha o conteúdo no topo */
+    padding-top: 50px; /* Adiciona um espaçamento superior */
+    position: relative; /* Necessário para o posicionamento absoluto do título */
+}
