@@ -1,64 +1,73 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- Bootstrap CSS -->
-     <link rel="stylesheet" href="style.css">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css">
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet">
+  </head>
+  <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <h1 class="navbar-brand"><b>Envio do convite</b></h1>
-            </div>
-        </nav>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <h1 class="navbar-brand"><b>Envio do convite</b></h1>
+        </div>
+      </nav>
     </header>
     <br>
 
     <main>
-        <section>
-            <form onsubmit= "enviarDados(event)">
-                <div class="container mt-4">
-                    <div class="mb-3">
-                        <label for="nome" class="form-label"><b>Nome</b></label>
-                        <input required type="text" class="form-control" id="nomeConvidado" name="nome">
-                    </div>
-                    <br>
-                    <div class="mb-3">
-                        <label for="email" class="form-label"><b>E-mail</b></label>
-                        <input required type="email" class="form-control" id="emailConvidado" name="email">
-                    </div>
-                    <br>
-                    <button type="submit" class="submit-btn"><b>Confirmar Participação</b></button>
+      <section>
+        <form onsubmit="enviarDados(event)">
+          <div class="container mt-4">
+            <div class="mb-3">
+              <label for="nome" class="form-label"><b>Nome</b></label>
+              <input required type="text" class="form-control"
+                id="nomeConvidado" name="nome">
+            </div>
+            <br>
+            <div class="mb-3">
+              <label for="email" class="form-label"><b>E-mail</b></label>
+              <input required type="email" class="form-control"
+                id="emailConvidado" name="email">
+            </div>
+            <br>
+            <button type="submit" class="submit-btn"><b>Confirmar
+                Participação</b></button>
 
-                </div>
-            </form>
-        </section>
+          </div>
+        </form>
+      </section>
     </main>
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
+      // Inicializar o SDK do EmailJS com seu User ID
+      emailjs.init("SxzHObhPaF2btKC0C");
+
       async function enviarDados(event) {
         // Previne o comportamento padrão do formulário (recarregar a página)
         event.preventDefault();
-    
+
         // Obter os valores dos campos do formulário
         const nome = document.getElementById("nomeConvidado").value;
         const email = document.getElementById("emailConvidado").value;
-    
-        // Corpo da requisição (payload)
+
+        // Corpo da requisição (dados para o servidor)
         const dados = {
           nomeConvidado: nome,
           emailConvidado: email,
         };
-    
+
         console.log("Enviando dados:", dados);
-    
+
         try {
           // Fazendo a requisição POST para a API
           const resposta = await fetch("http://localhost:9090/convidados/Criar", {
@@ -68,13 +77,28 @@
             },
             body: JSON.stringify(dados), // Converte os dados para JSON
           });
-    
+
           // Verifica se a requisição foi bem-sucedida
           if (resposta.ok) {
             const resultado = await resposta.json();
-            alert("Dados enviados com sucesso!");
-            console.log("Resultado:", resultado);
-            window.location.href = "obrigado.html";
+
+            // Enviar e-mail usando EmailJS
+            var templateParams = {
+              user_name: nome,  // Nome do convidado
+              user_email: email, // E-mail do convidado
+            };
+
+            // Enviar e-mail
+            emailjs.send("service_9xpeltl", "template_6wq2v1c", templateParams)
+              .then(function(response) {
+                console.log("E-mail enviado com sucesso", response);
+                 window.location.href = "obrigado.html"; // Redireciona após sucesso
+              }, function(error) {
+                console.log("Erro ao enviar o e-mail", error);
+                alert("Falha no envio do e-mail.");
+              });
+
+           
           } else {
             alert(`Erro ao enviar os dados: ${resposta.status} - ${resposta.statusText}`);
             const erroTexto = await resposta.text();
@@ -85,8 +109,8 @@
           alert("Ocorreu um erro na requisição.");
           console.error("Erro inesperado:", erro);
         }
-      }
-    </script>    
-    
-</body>
+      }
+    </script>
+
+  </body>
 </html>
