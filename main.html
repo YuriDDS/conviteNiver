@@ -68,9 +68,11 @@
 
         console.log("Enviando dados:", dados);
 
+        alert('Confirmação de participação demora um pouco, por favor aguarde.')
+
         try {
           // Fazendo a requisição POST para a API
-          const resposta = await fetch("http://localhost:9090/convidados/Criar", {
+          const resposta = await fetch("https://convite-d4zv.onrender.com/convidados/Criar", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
